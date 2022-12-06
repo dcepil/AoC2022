@@ -1,5 +1,4 @@
-export const input = `
-[M] [H]         [N]                
+export const input = `[M] [H]         [N]                
 [S] [W]         [F]     [W] [V]    
 [J] [J]         [B]     [S] [B] [F]
 [L] [F] [G]     [C]     [L] [N] [N]
@@ -511,3 +510,4 @@ move 9 from 1 to 6
 move 8 from 6 to 9
 move 4 from 5 to 3
 move 1 from 8 to 4`;
+export const lines = input.split("\n");
