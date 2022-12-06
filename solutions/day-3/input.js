@@ -298,3 +298,4 @@ gbJnrHHjnbrgLrRrHpBJvSBDDsfJsDtstq
 dBTtFLTtVmpdLhMprSRSWMRSMR
 QvJvQbjbCgCQRBhzzRsNWNBC
 bjgGqQGbQnjGQgnQgbGgjJnDLHLdfPVtdDmLZdBFVVZttdTf`;
+export const lines = input.split("\n");
