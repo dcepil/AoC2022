@@ -3,9 +3,7 @@ import { lines } from "./input.js";
 const emptyLine = lines.indexOf("");
 const stacks = lines.slice(0, emptyLine - 1).reverse();
 const moves = lines.slice(emptyLine + 1, lines.length);
-const charOffsets = [...Array(Math.ceil((33 - 2) / 4 + 1)).keys()].map(
-  (x) => x * 4 + 1
-);
+const charOffsets = [1, 5, 9, 13, 17, 21, 25, 29, 33];
 const parsedStacks = charOffsets.map((offset) =>
   Array.from(
     stacks
