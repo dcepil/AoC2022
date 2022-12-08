@@ -102,4 +102,4 @@ export const sample = `30373
 65332
 33549
 35390`;
-export const lines = sample.split("\n");
+export const lines = input.split("\n");

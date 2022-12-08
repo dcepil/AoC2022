@@ -1,23 +1,31 @@
 import { lines } from "./input.js";
 
-const sum = lines.reduce((prev, line, lIdx) => {
-  [...line].forEach((char, cIdx) => {
-    const [left, right] = [
-      char > Math.max(...line.slice(0, cIdx)),
-      char > Math.max(...line.slice(cIdx + 1, line.length)),
-    ];
-    console.log(left, char);
-    // if is visible then where is it from the given side
-    // if not visible then what's blocking it and what's the difference in the items indicies
-    console.log(line.indexOf(Math.max(...line.slice(0, cIdx))));
-    const [up, down] = [
-      char > Math.max(...lines.slice(0, lIdx).map((v) => v[cIdx])),
-      char >
-        Math.max(...lines.slice(lIdx + 1, lines.length).map((v) => v[cIdx])),
-    ];
-    // return left || right || up || down ? prev++ : prev;
-  });
-  return prev;
-}, 0);
-
-console.log(sum);
+console.log(
+  lines.reduce(
+    (prev, line, lIdx) =>
+      Math.max(
+        [...line]
+          .map(
+            (char, cIdx) =>
+              ([...line]
+                .slice(0, cIdx)
+                .reverse()
+                .findIndex((f) => f >= char) + 1 || cIdx) *
+              ([...line].slice(cIdx + 1).findIndex((f) => f >= char) + 1 ||
+                line.length - cIdx - 1) *
+              ([...lines]
+                .slice(0, lIdx)
+                .map((v) => v[cIdx])
+                .reverse()
+                .findIndex((f) => f >= char) + 1 || lIdx) *
+              ([...lines]
+                .slice(lIdx + 1)
+                .map((v) => v[cIdx])
+                .findIndex((f) => f >= char) + 1 || lines.length - lIdx - 1)
+          )
+          .reduce((a, c) => (c > a ? c : a), 0),
+        prev
+      ),
+    0
+  )
+);
